@@ -1,0 +1,7 @@
+#!/bin/bash
+fab dataa -t 3
+sleep 1
+./create_csv.sh
+sleep 1
+./sendfile.sh
+

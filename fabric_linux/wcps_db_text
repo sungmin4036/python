@@ -1,0 +1,1 @@
+mysql -uroot -pktcps123 mdb -e "select * from tbl_err_cdr_his where err_no="EF06"" >> full.txt 
