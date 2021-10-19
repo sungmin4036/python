@@ -11,13 +11,8 @@ import os
 # 명령이 실행되는 서버
 #  '10.1.222.2'
 # env.hosts = [IP_address.address] 사용 불가능한 방식
-# ['10.1.21.114','10.1.234.2','10.1.198.210','10.1.11.138']
+# ['IP주소','IP주소','IP주소','IP주소']
 # 비밀번호 입력하라고함
-
-# env.hosts = ['IP주소',
-# 'IP주소',
-# 'IP주소,
-# ]
 
 
 env.warn_only = True # 2.5 이상은 명령어 뒤에 , warn=True 만 하면되지만, 그이하는 이렇게 설정해줘야함, 접속 안되는경우 무시
@@ -28,8 +23,8 @@ hosts_len = len(env.hosts)
 yearmonth = input('년도, 월수 입력하세요 [ex) 202107] : ')
 def dataa():
     # 원격 명령에 사용할 사용자
-    env.user = 'cps'
-    env.password = 'ktint0910c'
+    env.user = 'ID'
+    env.password = 'Password'
     
     dir = '/usr1/cps/data/ErrLog/'
     # 매게변수로 년도월수 입력 ex)202107
