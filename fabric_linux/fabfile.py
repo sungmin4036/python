@@ -6,42 +6,18 @@ import subprocess
 import ftplib
 import os
 
-#사용법 fab dataa -t 5
+# 사용법 fab dataa -t 5
 
 # 명령이 실행되는 서버
 #  '10.1.222.2'
 # env.hosts = [IP_address.address] 사용 불가능한 방식
 # ['10.1.21.114','10.1.234.2','10.1.198.210','10.1.11.138']
 # 비밀번호 입력하라고함
-ipaddress_string="""10.1.220.162
-10.1.214.19
-10.1.11.138
-10.1.220.146
-10.1.205.226
-10.1.34.146
-10.1.231.242
-10.1.220.146
-10.1.13.178
-10.1.205.211"""
 
-# ipaddress_string = "["+ipaddress_string+"]"
-ipaddress_string = ipaddress_string.replace("\n", ",")
-ipaddress_string = ipaddress_string.split(",")
-
-# print(ipaddress_string)
-# print("==========================")
-# print([server for server in ipaddress_string])
-env.hosts = [server for server in ipaddress_string]
-
-# env.hosts = ['10.1.21.114',
-# '10.1.234.2',
-# '10.1.198.210',
-# '10.1.11.138',
-# '10.1.239.242',
-# '10.1.164.98',
-# '10.1.205.34'
+# env.hosts = ['IP주소',
+# 'IP주소',
+# 'IP주소,
 # ]
-
 
 
 env.warn_only = True # 2.5 이상은 명령어 뒤에 , warn=True 만 하면되지만, 그이하는 이렇게 설정해줘야함, 접속 안되는경우 무시
@@ -58,36 +34,32 @@ def dataa():
     dir = '/usr1/cps/data/ErrLog/'
     # 매게변수로 년도월수 입력 ex)202107
     with cd(dir):
-    # with settings(user='*',password='*'):
-        sudo('head -20 or' + str(yearmonth) +'*|grep ��� >> full.txt')
-        run('head -20 or' + str(yearmonth) +'*|grep �߽� >> full.txt')
-        run('head -20 or' + str(yearmonth) +'*|grep Ac   >> full.txt')
-        run('head -20 or' + str(yearmonth) +'*|grep ���� >> full.txt')
-  
+        run('echo 발신 에러 개수 >> full.txt')
+        run('more  or' + str(yearmonth) +'*|grep 발신 | wc -l  >> full.txt')
+        run('more  or' + str(yearmonth) +'*|grep 발신 | head -n 20  >> full.txt')
+
+
+        run('echo 국번 에러 개수 >> full.txt')
+        run('more  or' + str(yearmonth) +'*|grep 국번 | wc -l  >> full.txt')
+        run('more  or' + str(yearmonth) +'*|grep 국번| head -n 20 >> full.txt')
+
+        run('echo Access Code  에러 개수 >> full.txt')
+        run('more  or' + str(yearmonth) +'*|grep Ac | wc -l  >> full.txt')
+        run('more or' + str(yearmonth) +'*|grep Ac | head -n 20 >> full.txt')
+
+        run('echo 결기 에러 개수 >> full.txt')
+        run('more  or' + str(yearmonth) +'*|grep 결기 | wc -l  >> full.txt')
+        run('more  or' + str(yearmonth) +'*|grep 결기 head -n 20 >> full.txt')
+
+
+
         get(dir + 'full.txt')
         run('rm -rf full.txt')
         time.sleep(2)
+
+
     
-        
-        # run("cat or" + str(yearmonth) + '*|grep 결기 >> Gul.txt' )
-        # get(dir + 'Gul.txt')
-        # run('rm -rf Gul.txt')
 
-        # run('cat or' + str(yearmonth) +'*|grep 발신 >> Bal.txt')
-        # get(dir + 'Bal.txt')
-        # run('rm -rf Bal.txt')
-        
-        # run('cat or' + str(yearmonth) +'*|grep Ac  >> Acc.txt')
-        # get(dir + 'Acc.txt')
-        # run('rm -rf Acc.txt')
-
-        # run('cat or' + str(yearmonth) +'*|grep 국번 >> Kook.txt')
-        # get(dir + 'Kook.txt')
-        # run('rm -rf Kook.txt')
-
-        # local('Gul.txt >> full.txt && Bal.txt >> full.txt && Acc.txt >> full.txt && Kook.txt >> full.txt')
-        # local('chmod 777 *')
-        # local('ls Gul.txt Bal.txt Acc.txt Kook.txt | xargs cat > full.txt')
 
 # ●fabric의 주요 명령어
 # - run('{command}') : 원격 서버에서 명령어를 수행한다.
