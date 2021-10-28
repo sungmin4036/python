@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from fabric.api import *
 import time
-import IP_address
+from IP_List import *
 import subprocess
 import ftplib
 import os
@@ -14,6 +14,7 @@ import os
 # ['IP주소','IP주소','IP주소','IP주소']
 # 비밀번호 입력하라고함
 
+env.hosts = Ip_Get_List
 
 env.warn_only = True # 2.5 이상은 명령어 뒤에 , warn=True 만 하면되지만, 그이하는 이렇게 설정해줘야함, 접속 안되는경우 무시
 env.skip_bad_hosts = True #  접속 안되는경우 무시
