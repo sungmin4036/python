@@ -1,34 +1,33 @@
-# N, M을 공백을 기준으로 구분하여 입력 받기
-n, m = map(int, input().split())
+from typing import List
 
-# 2차원 리스트의 맵 정보 입력 받기
-graph = []
-for i in range(n):
-    graph.append(list(map(int, input())))
 
-# DFS로 특정한 노드를 방문한 뒤에 연결된 모든 노드들도 방문
-def dfs(x, y):
-    # 주어진 범위를 벗어나는 경우에는 즉시 종료
-    if x <= -1 or x >= n or y <= -1 or y >= m:
-        return False
-    # 현재 노드를 아직 방문하지 않았다면
-    if graph[x][y] == 0:
-        # 해당 노드 방문 처리
-        graph[x][y] = 1
-        # 상, 하, 좌, 우의 위치들도 모두 재귀적으로 호출
-        dfs(x - 1, y)
-        dfs(x, y - 1)
-        dfs(x + 1, y)
-        dfs(x, y + 1)
-        return True
-    return False
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        stack = []
+        volume = 0
 
-# 모든 노드(위치)에 대하여 음료수 채우기
-result = 0
-for i in range(n):
-    for j in range(m):
-        # 현재 위치에서 DFS 수행
-        if dfs(i, j) == True:
-            result += 1
+        for i in range(len(height)):
+            # 변곡점을 만나는 경우
+            
+            # print(height[stack[-1]])
+            
+            while stack and height[i] > height[stack[-1]]:
+                test1 = height[stack[0]]
+                test2 = height[stack[-1]]
+                # 스택에서 꺼낸다
+                top = stack.pop()
 
-print(result) # 정답 출력
+                if not len(stack):
+                    break
+
+                # 이전과의 차이만큼 물 높이 처리
+                distance = i - stack[-1] - 1
+                waters = min(height[i], height[stack[-1]]) - height[top]
+
+                volume += distance * waters
+
+            stack.append(i)
+        return volume
+
+test_Solution = Solution()
+test_Solution.trap([0,1,0,2,1,0,1,3,2,1,2,1])
