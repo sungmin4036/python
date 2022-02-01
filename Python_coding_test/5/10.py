@@ -1,33 +1,24 @@
+# from curses.ascii import SO
+import sys
 from typing import List
 
 
 class Solution:
-    def trap(self, height: List[int]) -> int:
-        stack = []
-        volume = 0
+    def maxProfit(self, prices: List[int]) -> int:
+        profit = 0
+        min_price = sys.maxsize
 
-        for i in range(len(height)):
-            # 변곡점을 만나는 경우
-            
-            # print(height[stack[-1]])
-            
-            while stack and height[i] > height[stack[-1]]:
-                test1 = height[stack[0]]
-                test2 = height[stack[-1]]
-                # 스택에서 꺼낸다
-                top = stack.pop()
+        # 최소값과 최대값 계속 갱신
+        for price in prices:
+            min_price = min(min_price, price)
+            profit = max(profit, price - min_price)
 
-                if not len(stack):
-                    break
+        return profit
+    
 
-                # 이전과의 차이만큼 물 높이 처리
-                distance = i - stack[-1] - 1
-                waters = min(height[i], height[stack[-1]]) - height[top]
 
-                volume += distance * waters
+test_python = Solution()
 
-            stack.append(i)
-        return volume
+dap = [7, 1, 5, 3, 6, 4]
 
-test_Solution = Solution()
-test_Solution.trap([0,1,0,2,1,0,1,3,2,1,2,1])
+test_python.maxProfit(dap)
