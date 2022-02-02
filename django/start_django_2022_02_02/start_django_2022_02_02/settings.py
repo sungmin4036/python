@@ -20,12 +20,46 @@ env = environ.Env(
     DEBUG=(bool, False)
 )
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Set the project base directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-environ.Env.read_env(
-    env_file = os.path.join(BASE_DIR, '.env')
-)
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+# False if not in os.environ because of casting above
+DEBUG = env('DEBUG')
+
+# Raises Django's ImproperlyConfigured
+# exception if SECRET_KEY not in os.environ
+# SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = "2n6gggvhf@=@tj8l60$lzqf*9*^yi4nwbus+uyb-6s5@-w9cty"
+
+# # Parse database connection url strings
+# # like psql://user:pass@127.0.0.1:8458/db
+# DATABASES = {
+#     # read os.environ['DATABASE_URL'] and raises
+#     # ImproperlyConfigured exception if not found
+#     #
+#     # The db() method is an alias for db_url().
+#     'default': env.db(),
+
+#     # read os.environ['SQLITE_URL']
+#     'extra': env.db_url(
+#         'SQLITE_URL',
+#         default='sqlite:////tmp/my-tmp-sqlite.db'
+#     )
+# }
+
+# CACHES = {
+#     # Read os.environ['CACHE_URL'] and raises
+#     # ImproperlyConfigured exception if not found.
+#     #
+#     # The cache() method is an alias for cache_url().
+#     'default': env.cache(),
+
+#     # read os.environ['REDIS_URL']
+#     'redis': env.cache_url('REDIS_URL')
+# }
 
 
 
@@ -33,12 +67,16 @@ environ.Env.read_env(
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+
+
+# ------------------django-doc 복사 부분
+
 
 
 # Application definition
@@ -68,7 +106,7 @@ ROOT_URLCONF = 'start_django_2022_02_02.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,7 +128,8 @@ WSGI_APPLICATION = 'start_django_2022_02_02.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',  // type 에러 떠서 교체
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

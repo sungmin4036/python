@@ -49,3 +49,19 @@ settings.py 에 내용 추가 및 가상 폴더에 .env 폴더 생성후 내용 
 SECRET_KEY = env('SEVRET_KEY')로 변경
 
 .gitignore 에 .env 추가
+
+---
+
+루트 폴더에 templates 폴더 생성후 base.html 생성
+
+view 에서 만든걸 html에 넣는 형식
+
+settings에서
+
+TEMPLATES = [
+
+'DIRS': [os.path.join(BASE_DIR, 'templates')],
+                                    폴더이름
+
+을 수정해줘야한다. 장고가 이 탬플릿트가 어디있는지 알고서, html 파일들을 view 파일을 연결시켜준다.
+--

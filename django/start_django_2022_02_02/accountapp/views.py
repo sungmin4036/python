@@ -5,5 +5,5 @@ from django.http import HttpResponse
 
 # Create your views here.
 
-def hellow_world(request):
-    return HTTPResponse('안녕하세요')
+def hello_world(request):
+    return render(request, 'accountapp/hello_world.html')

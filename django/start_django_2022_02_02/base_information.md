@@ -1,8 +1,8 @@
 개발 패턴
 
-M odel
-V iew
-C ontroller --> T emplate(장고의 경우)
+M odel   
+V iew   
+C ontroller --> T emplate(장고의 경우)   
 
 ==> MTV?MVT?
 
@@ -47,3 +47,15 @@ JS, HTML, CSS의 프론트 엔드단과 밀접한 관계, 즉 user Interface 어
 ![image](https://user-images.githubusercontent.com/62640332/152121465-5ad5e858-ae1e-4959-9b7c-55498cee8a28.png)
 
 
+---
+
+H pyer   
+T ext   
+M arkup   
+L anguage   
+
+Template 에서 extends / include 자주 사용
+
+- extends는 미리 만들어노는 html 탬플릿 파일을 만들어 노면, 이것을 가지고 와서 html을 만든다. => 바탕을 깔아주는 느낌
+
+- include는 조각을 가지고 와서 탬플릿에 박아 넣는다. => 정의를 가져와서 붙이는 느낌
