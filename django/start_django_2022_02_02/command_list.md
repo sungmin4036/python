@@ -33,3 +33,19 @@ python manage.py startapp accountapp
 accountapp 만들었고, 이것을 사용할거다 라는걸 명시 필요
 
 장고 메인 폴더 - settings.py - INSTALLED_APPS - accountapp(앱이름 추가)
+
+--
+
+장고는 각각 시큐리티 키 가지고 있음. 보안상 다른사람에게 알려주면 안됨.
+
+깃헙에 올려버리는걸 방지하기 위해 장고 문서 이용
+
+python -m pip install django-environ
+
+settings.py 에 내용 추가 및 가상 폴더에 .env 폴더 생성후 내용 추가.
+
+이렇게하면 setting의 env 변수에 가상폴더 .env 내용이 포함된거여서 settings의 SECRET_KEY 삭제해도 된다.
+
+SECRET_KEY = env('SEVRET_KEY')로 변경
+
+.gitignore 에 .env 추가
