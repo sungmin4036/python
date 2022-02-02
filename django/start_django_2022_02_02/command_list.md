@@ -65,3 +65,7 @@ TEMPLATES = [
 
 을 수정해줘야한다. 장고가 이 탬플릿트가 어디있는지 알고서, html 파일들을 view 파일을 연결시켜준다.
 --
+
+accountapp 폴더에 다시 templates-accountapp 폴더를 만든다.
+
+추후 사용시 가독성 높이기 위해서 하는 사전 작업

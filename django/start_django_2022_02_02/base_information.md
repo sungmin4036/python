@@ -59,3 +59,8 @@ Template 에서 extends / include 자주 사용
 - extends는 미리 만들어노는 html 탬플릿 파일을 만들어 노면, 이것을 가지고 와서 html을 만든다. => 바탕을 깔아주는 느낌
 
 - include는 조각을 가지고 와서 탬플릿에 박아 넣는다. => 정의를 가져와서 붙이는 느낌
+
+![image](https://user-images.githubusercontent.com/62640332/152164821-40879868-cdf1-4714-a32b-8a38d711cc45.png)
+
+
+
