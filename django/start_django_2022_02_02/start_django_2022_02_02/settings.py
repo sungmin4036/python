@@ -21,7 +21,7 @@ env = environ.Env(
 )
 
 # Set the project base directory
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) #base 프로젝트 경로
 
 # Take environment variables from .env file
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
@@ -169,8 +169,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+# head 연결해줌
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# python manage.py collectstatic 명령어를 사용하면 프로젝트에 있는 모든 static 파일들을 한군대로 모아주는 명령어 인데, 이 명령어를 통해서 이 파일들이 어디로 모이는건지 알려주는것.
+
+
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+#     '/var/www/static/',
+# ] 기본 django doc 에서 가죠오면 이 형태지만 왜인지 모르지만 /(슬러시)가 나누기로 인식 한다. => ,(콤마)로 변경
+
+STATICFILES_DIRS = [
+    BASE_DIR , "static",
+    '/var/www/static/',
+]
+
+# static files 들을 앱에 종속시키지 않고 static 폴더 따로 관리 하기 위해 설정, django Doc 참조.
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

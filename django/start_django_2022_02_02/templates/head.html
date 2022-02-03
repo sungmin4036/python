@@ -1,3 +1,5 @@
+{% load static %} 
+{% comment %} 이것을 어 줘야 static 관련 파일을 가지고 올수있다. {% endcomment %}
 <head>
     <meata charset="UTF-8"
     <title>Pragmatic</title>
@@ -11,5 +13,9 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap" rel="stylesheet">
+
+    {% comment %} DEFAULT CSS LINK {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    {% comment %} basee.css 파일에 해당하는것을 장고에서 자동으로 이어줘서 사용할수 있게 해준다. {% endcomment %}
 
 </head>

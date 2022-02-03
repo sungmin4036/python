@@ -42,6 +42,8 @@ accountapp 만들었고, 이것을 사용할거다 라는걸 명시 필요
 
 python -m pip install django-environ
 
+\# pip install environ 하면 에러가 뜨니 주의할것
+
 settings.py 에 내용 추가 및 가상 폴더에 .env 폴더 생성후 내용 추가.
 
 이렇게하면 setting의 env 변수에 가상폴더 .env 내용이 포함된거여서 settings의 SECRET_KEY 삭제해도 된다.
@@ -69,3 +71,9 @@ TEMPLATES = [
 accountapp 폴더에 다시 templates-accountapp 폴더를 만든다.
 
 추후 사용시 가독성 높이기 위해서 하는 사전 작업
+
+--
+
+settings.py 에 STATIC_ROOT 추가
+
+staticfiles 따로 관리 하기 위해서 static 폴더 생성 및 css파일 생성
