@@ -2,9 +2,38 @@
 
 {% block content%}
 
+    <style>
+        .testing {
+            background-color:white;
+            height: 3rem;
+            width: 3rem;
+            margin: 1rem;
+        }
+
+    </style>
+
     <div style="height: 20rem; background-color: #38df81; border-radius: 1rem; margin: 2rem;">
         <h1>
-            testing
+            hello_world.html 내용
         </h1>
+        
+            {% comment %} 
+            <div class='testing' style="display: block;">block</div>
+            <div class='testing' style="display: inline;">inline</div>
+            <div class='testing' style="display: None;">None</div>
+            <div class='testing' style="display: inline-block;">inline-block</div>
+            <div class='testing' >default</div> 
+            {% endcomment %}
+
+            <div class='testing' style="display: inline-block; width: 48px; height: 48px;">inline</div>
+            <div class='testing' style="display: inline-block; width: 3em; height: 3em;">inline</div>
+            <div class='testing' style="display: inline-block; width: 3rem; height: 3rem;">inline</div>
+            <div class='testing' style="display: inline-block; width: 30%; height: 30%;">inline</div>
+
+
+
+
+            {% comment %} div 기본 속성은 block {% endcomment %}
+            {% comment %} span 기본 속성은 inline {% endcomment %}
     </div>
 {% endblock content%}

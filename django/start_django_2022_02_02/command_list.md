@@ -77,3 +77,7 @@ accountapp 폴더에 다시 templates-accountapp 폴더를 만든다.
 settings.py 에 STATIC_ROOT 추가
 
 staticfiles 따로 관리 하기 위해서 static 폴더 생성 및 css파일 생성
+
+--
+
+hello_world.html 에서 css attribute 테스트
