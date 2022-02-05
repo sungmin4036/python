@@ -72,19 +72,19 @@ accountapp 폴더에 다시 templates-accountapp 폴더를 만든다.
 
 추후 사용시 가독성 높이기 위해서 하는 사전 작업
 
---
+---
 
 settings.py 에 STATIC_ROOT 추가
 
 staticfiles 따로 관리 하기 위해서 static 폴더 생성 및 css파일 생성
 
---
+---
 
 hello_world.html 에서 css attribute 테스트
 
---
+---
 
-python manage.py makemigratoins
+python manage.py makemigrations
 
 modles.py 에서 쓰는 DB 와 연동시킬 파이썬 파일로 만들어 주는 작업을 해주는 명령어
 
@@ -92,8 +92,13 @@ modles.py 에서 쓰는 DB 와 연동시킬 파이썬 파일로 만들어 주는
 
 \# 추가로 만들어진 파일을 임의로 지우면 적체적으로 깨질가능성이 매우 높으므로, 함부로 삭제하지 말것.
 
-이것을 실제 서버에 적용아기 위해서 사용 하는 명령어는
+이것을 실제 서버에 적용하기 위해서 사용 하는 명령어는
 
 python manage.py migrate
 
+---
 
+
+Exception Value: no such table: accountapp_helloworld 라는 에러 발생
+
+장고 서버 끄고, 마이그레이션 재생성 및 재적용을 한후, 재실행하면 된다.

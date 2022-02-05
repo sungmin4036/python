@@ -19,7 +19,6 @@
         </h1>
             <form action="/account/hello_world/" method="post">
                 {% csrf_token %} 
-
                 <div>
                     <input tupe="text" name="hello_world_input">
                 </div>
@@ -33,11 +32,17 @@ html 파일에다가 from 태그를 만들어 줘야한다. POST의경우 BODY �
 django의 경우 post 메소드의 경우 보안상 csrf_token 을 반드시 추가로 넣어줘야한다.
 {% endcomment %}
 
-            {% if hello_world_output %}
-            <h5>
-                {{ hello_world_output.text }}
-            </h5>
-            {% endif%}
+            {% if hello_world_list %}
+            {% comment %} 이 리스트는 배열안에 있는 여러개 오브젝트의 다발이다. => for문 사용하여 출력 {% endcomment %}
+
+            {% comment %} {% if hello_world_output %} {% endcomment %}
+                {% for hello_world in hello_world_list %}
+                <h5>
+                    {{ hello_world.text }}
+                    {% comment %} {{ hello_world_output.text }} {% endcomment %}
+                </h5>
+                {% endfor %}
+            {% endif %}
                 {% comment %} hello_world_output 값이 있을경우 실행한다. {% endcomment %}
 
 
