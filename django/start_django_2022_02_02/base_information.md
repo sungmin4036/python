@@ -2,7 +2,7 @@
 
 M odel   
 V iew   
-C ontroller --> T emplate(장고의 경우)   
+C ontroller ---> T emplate(장고의 경우)   
 
 ==> MTV?MVT?
 
@@ -47,7 +47,7 @@ JS, HTML, CSS의 프론트 엔드단과 밀접한 관계, 즉 user Interface 어
 ![image](https://user-images.githubusercontent.com/62640332/152121465-5ad5e858-ae1e-4959-9b7c-55498cee8a28.png)
 
 
----
+----
 
 H pyer   
 T ext   
@@ -63,7 +63,7 @@ Template 에서 extends / include 자주 사용
 ![image](https://user-images.githubusercontent.com/62640332/152164821-40879868-cdf1-4714-a32b-8a38d711cc45.png)
 
 
---
+---
 
 C ascading   
 S tyle   
@@ -120,7 +120,7 @@ html 상에서 있긴 있지만, 시각화되는 거에서 아무것도 없음
 
 반응형(Responsive)으로 만들기 중요하다.
 
----
+----
 
 html 스타일 적용 되는 순서
 
@@ -129,3 +129,34 @@ html 스타일 적용 되는 순서
 3. css파일
 
 
+----
+
+HTTP Protocol
+
+1. GET
+2. POST
+
+![image](https://user-images.githubusercontent.com/62640332/152633000-e301a21e-cb3e-4817-b6d8-ad8b9b9fbb62.png)
+
+서버에서 무엇을 보내줘야하는지 정보가 정해져있다.
+
+그것에 대한 데이터를 정의 되어 있는것이 GET 과 POST
+
+https://onion.haus/ 로 데이터를 보낼경우
+
+
+<br>
+<br>
+
+- GET 의 경우 대부분 조회(inquiry)를 위해서 사용된다.
+
+https://onion.haus/?param1=value1
+
+<br>
+<br>
+
+- POST의 경우 create, update를 위해서 사용된다.
+
+https://oninon.haus/
+
+POST + BODY << BODY에 데이터를 넣어서 보낸다.

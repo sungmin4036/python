@@ -16,8 +16,32 @@
         <h1>
             hello_world.html 내용
         </h1>
-        
-            {% comment %} 
+            <form action="/account/hello_world/" method="post">
+                {% csrf_token %} 
+                <input type="submit" class="btn btn-primary" value="POST"> 
+            </form>
+
+{% comment %} GET의 경우 일반적으로 브라우저에 작성하면 자동으로 되지만, POST는 따로 설정해야한다.
+html 파일에다가 from 태그를 만들어 줘야한다. POST의경우 BODY 안에 데이터를 넣어서 처리하는데
+그 BODY가 form안에 들어가 있다고 생각하면 된다.  
+django의 경우 post 메소드의 경우 보안상 csrf_token 을 반드시 추가로 넣어줘야한다.
+{% endcomment %}
+
+            <h5>
+                {{ text }}
+            </h5>
+
+
+
+
+
+          
+    </div>
+{% endblock content%}
+
+
+
+  {% comment %} 
             <div class='testing' style="display: block;">block</div>
             <div class='testing' style="display: inline;">inline</div>
             <div class='testing' style="display: None;">None</div>
@@ -25,15 +49,11 @@
             <div class='testing' >default</div> 
             {% endcomment %}
 
-            <div class='testing' style="display: inline-block; width: 48px; height: 48px;">inline</div>
+            {% comment %} <div class='testing' style="display: inline-block; width: 48px; height: 48px;">inline</div>
             <div class='testing' style="display: inline-block; width: 3em; height: 3em;">inline</div>
             <div class='testing' style="display: inline-block; width: 3rem; height: 3rem;">inline</div>
-            <div class='testing' style="display: inline-block; width: 30%; height: 30%;">inline</div>
-
-
+            <div class='testing' style="display: inline-block; width: 30%; height: 30%;">inline</div> {% endcomment %}
 
 
             {% comment %} div 기본 속성은 block {% endcomment %}
             {% comment %} span 기본 속성은 inline {% endcomment %}
-    </div>
-{% endblock content%}
