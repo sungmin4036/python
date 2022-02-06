@@ -6,13 +6,12 @@
 <div style="text-align: center; max-width: 500px; margin: 2rem auto">
     
     <div class="mb-4">
-        <h4>Sign Up</h4>
+        <h4>Change Info</h4>
     </div>
-    <form action="{% url 'accountapp:create' %}" method="post"> 
+
+    <form action="{% url 'accountapp:update' pk=user.pk %}" method="post"> 
         {% csrf_token %} 
         {% bootstrap_form form %}
-        {% comment %} {{ form }}  {% endcomment %}
-        {% comment %} views.py 에서 form_class = UserCreationForm 설정되있는것 가져옴  {% endcomment %}
         <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
     </form>
 </div>

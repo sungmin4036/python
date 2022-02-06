@@ -1,9 +1,11 @@
 from http.client import HTTPResponse
 from multiprocessing import context
+from re import template
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from accountapp.forms import AccountUpdateForm
 from accountapp.models import HelloWorld
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -45,6 +47,23 @@ def hello_world(request):
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('accountapp:hello_world') # 성공했다면, hellow_word 로 재연결 해라, reverse 는 함수형 에서사용하고, reverse_lazy는 클래스형
+    success_url = reverse_lazy('accountapp:hello_world') # 성공했다면, hello_word 로 재연결 해라, reverse 는 함수형 에서사용하고, reverse_lazy는 클래스형
     template_name = 'accountapp/create.html' # 회원가입 할떄, 비주얼 어떤걸 이용할것인지.
     
+    
+class AccountDetailView(DetailView):
+    model = User
+    context_object_name = 'target_user' # 템플렛에서 사용하는 유저 객체를 다르게 설정
+    template_name = 'accountapp/detail.html'
+    
+
+class AccountUpdateView(UpdateView):
+    model = User
+    form_class = AccountUpdateForm
+    success_url = reverse_lazy('accountapp:hello_world')
+    template_name = 'accountapp/update.html'    
+    
+class AccountDeleteView(DeleteView):
+    model = User
+    Success_url = reverse_lazy('accountapp:login')
+    template_name = 'accountapp/delete.html'

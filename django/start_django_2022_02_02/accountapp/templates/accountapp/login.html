@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <div style="text-align: center; max-width:500px; margin: 4rem auto">
+        <div>
+            <h5>Login<h5>
+        </div>
+        <div>
+            <form action="" method="post">
+                {% csrf_token %}
+                {% comment %} {{ form }} {% endcomment %}
+                {% bootstrap_form form %}
+                <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+                {% comment %}부모의 너비 퍼센테이지로 하는것 12가 max, mt는 기존 마진의 3배 의미 {% endcomment %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

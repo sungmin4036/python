@@ -7,6 +7,23 @@
         <span>name1</span>
         <span>name2</span>
         <span>name3</span>
-        <span>name4</span>
+        
+        {% if not user.is_authenticated %}
+        <a href= "{% url 'accountapp:login' %}?next={{ request.path }}"> 
+            {% comment %} next 인자가 필요하고, 정보를 받은후, next함수를 이용해서 request.path 라는 인자를 보낸후 원래 있던 자리로 돌아오게. {% endcomment %}
+            <span>Login</span>  
+        </a>
+        <a href= "{% url 'accountapp:create' %}"> 
+            <span>SignUp</span>  
+        </a>
+        {% else %}
+        <a href="{% url 'accountapp:detail' pk=user.pk %}">
+            <span>Mypage</span>
+        </a>
+        <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
+            <span>Logout</span>
+        </a>
+        {% endif%}
+
     </div>
 </div>

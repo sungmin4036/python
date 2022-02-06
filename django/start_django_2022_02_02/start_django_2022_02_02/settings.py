@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from django.urls import reverse_lazy
 
 import environ
 import os
@@ -88,7 +89,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accountapp'
+    'accountapp',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -179,7 +181,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static",
 #     '/var/www/static/',
-# ] 기본 django doc 에서 가죠오면 이 형태지만 왜인지 모르지만 /(슬러시)가 나누기로 인식 한다. => ,(콤마)로 변경
+# ]  #기본 django doc 에서 가죠오면 이 형태지만 왜인지 모르지만 /(슬러시)가 나누기로 인식 한다. => ,(콤마)로 변경
 
 STATICFILES_DIRS = [
     BASE_DIR , "static",
@@ -194,3 +196,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
+LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+# 로그인 페이지를 next 인자로 받아서 한게 아닌 url에 직접 입력하여 들어올경우 에러 발생 이것을 방지하기위한 설정
+# 직적 /login url로 들어가서도 사용해도, 메인 페이지로 이동해준다. url_redirect 설정.
