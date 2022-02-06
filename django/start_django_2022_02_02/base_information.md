@@ -160,3 +160,59 @@ https://onion.haus/?param1=value1
 https://oninon.haus/
 
 POST + BODY << BODY에 데이터를 넣어서 보낸다.
+
+---
+
+<br>
+<br>
+ 
+ djanog 는 CURD 의 생산성이 좋은걸로 유명하다.
+
+ Create  (view)
+ Read    (view)
+ Update  (view)
+ Delete  (view)
+
+ why?? 각 모든 기능에 대한 view 를 따로 제공해준다. (class) 
+
+ => CBV
+
+ C lass   
+ B ased   
+ V iew    
+
+ 이에 반대되는 말이 FBV(Function Based View)며, 함수 기반의 뷰로, 지금 까지만든 Hello World가 FBV 이다.
+
+ ```
+ def hello_world(request):
+    
+    if request.method == "POST": #GET 인지 POST인지 구별해서 처리하게 해야한다.
+        
+        temp = request.POST.get('hello_world_input')
+        
+        new_hello_world = HelloWorld()
+        new_hello_world.text = temp
+        new_hello_world.save()
+        
+        hello_world_list = HelloWorld.objects.all()
+      return HttpResponseRedirect(reverse('accountapp:hello_world'))
+        
+    else:
+        hello_world_list = HelloWorld.objects.all()
+        return render(request, 'accountapp/hello_world.html', context={'hello_world_list': hello_world_list})
+ ```
+
+나중에 너무 길어진다.
+
+```
+class AccountCreateView(generic.CreateView):
+   mdoel = User
+   form_class = AccountCreateForm
+   success_url = reverse_lazy('app:list')
+   template_name = 'accountapp/account_create.html'
+```
+CBA 형식으로 하면 굉장히 짧아진다.
+
+class base로 만들게 된다면, 대부분 좋아지지만 주로 생산성, 복잡도, 사용하는시간도 굉장히 좋아진다.
+
+

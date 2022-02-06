@@ -102,3 +102,23 @@ python manage.py migrate
 Exception Value: no such table: accountapp_helloworld 라는 에러 발생
 
 장고 서버 끄고, 마이그레이션 재생성 및 재적용을 한후, 재실행하면 된다.
+
+---
+
+
+ㅁ 전체적인 흐름
+
+![image](https://user-images.githubusercontent.com/62640332/152668716-52d7b1fa-563e-4f1d-b008-7bdd5237fe3f.png)
+
+
+From -> hello world에 요청을 보낼시, 가상서버를 빌려서 실제서버를 올린 가정하에,
+
+이 요청을 아무나 할수있는게 아닌 인증시스템필요.
+
+=> 계정이라는 객체 필요.
+
+1. 회원 가입 -----------------> create view
+2. 로그인   ------------------> (login view)
+3. 회원가입한 계정 보기 -------> read view
+4. 회원가입한 계정 정보 변경 --> update view
+5. 계정 탈퇴 -----------------> delete view
