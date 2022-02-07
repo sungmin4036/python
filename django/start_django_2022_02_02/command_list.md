@@ -209,5 +209,5 @@ ProfileAPP 의 경우에는 기본 제공해주지 않는다. => 새로운 폼�
  ![image](https://user-images.githubusercontent.com/62640332/152817265-faebf7eb-e74c-4fa2-802e-46c0f5dfe557.png)
 
 
- 
+ profileapp 폴더에 forms.py 생성
 

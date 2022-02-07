@@ -15,5 +15,5 @@ class Profile(models.Model):
     nickname = models.CharField(max_length=20, unique=True, null=True)
     # unique 무조건 유일한 닉네임 가져야한다.
 
-    message = models.CharFiled(max_length=100, null=True)
+    message = models.CharField(max_length=100, null=True)
     

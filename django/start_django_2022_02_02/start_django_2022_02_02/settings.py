@@ -203,7 +203,7 @@ LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 # 로그인 페이지를 next 인자로 받아서 한게 아닌 url에 직접 입력하여 들어올경우 에러 발생 이것을 방지하기위한 설정
 # 직적 /login url로 들어가서도 사용해도, 메인 페이지로 이동해준다. url_redirect 설정.
 
-MEDIA_URL = '/media' #주소창에 media 이하의 파일에 접속해야지 미디어 파일에 접속 가능하다는것
+MEDIA_URL = 'media/' #주소창에 media 이하의 파일에 접속해야지 미디어 파일에 접속 가능하다는것
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # media 파일을 서버에 올렸을때 어느 경로에 저장될것인지에 대한 정보.
 
