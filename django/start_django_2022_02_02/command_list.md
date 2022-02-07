@@ -152,4 +152,17 @@ base.html에서 전체적으로 적용을위해서 추가.
 ---
 update는 기본으로 아이디도 변경이 가능하게 설정되어있따.
 
-그래서, forms.py를 생성하여, AccountUpdateForm을 수정하여 만들어 준뒤,  View.py에서 사용중인 form_class 을 UserCreationForm -> AccountUpdateForm 으로 변경한다.
+그래서, forms.py를 생성하여, AccountUpdateForm을 수정하여 만들어 준뒤,  View.py에서 사용중인 form_class 을 UserCreationForm 
+
+-> AccountUpdateForm 으로 변경한다.
+
+---
+
+현제 update, login 이런대를 직적 들어가면 로그인이 안되어있어도 들어가진다.
+
+뭔가 말이 안되는 상황이다.
+
+--> authentication 필요
+
+---
+
