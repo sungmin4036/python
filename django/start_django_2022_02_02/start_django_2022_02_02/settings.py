@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from msilib.schema import Media
 from pathlib import Path
 from django.urls import reverse_lazy
 
@@ -200,3 +201,7 @@ LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 # 로그인 페이지를 next 인자로 받아서 한게 아닌 url에 직접 입력하여 들어올경우 에러 발생 이것을 방지하기위한 설정
 # 직적 /login url로 들어가서도 사용해도, 메인 페이지로 이동해준다. url_redirect 설정.
+
+MEDIA_URL = '/media'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

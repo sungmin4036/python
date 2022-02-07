@@ -166,3 +166,16 @@ update는 기본으로 아이디도 변경이 가능하게 설정되어있따.
 
 ---
 
+파이썬 데코레이터, 그함수의 앞이나 뒤, 앞뒤에 붙어서 가독성이 좋게 만들어 주는것.
+
+![image](https://user-images.githubusercontent.com/62640332/152809107-c0e6c76b-b277-487d-a496-16b31f241b4a.png)
+
+---
+
+root 계정 생성 
+
+python manage.py createsuperuser
+
+프로필 만들건데, 이미지를 다루기 위해서는  settingspy 에서 media 데이터 추가 
+
+media에 필요한 라이브러리 설치 필요 pip install pillow
