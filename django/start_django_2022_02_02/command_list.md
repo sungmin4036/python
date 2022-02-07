@@ -178,4 +178,36 @@ python manage.py createsuperuser
 
 프로필 만들건데, 이미지를 다루기 위해서는  settingspy 에서 media 데이터 추가 
 
-media에 필요한 라이브러리 설치 필요 pip install pillow
+media에 필요한 라이브러리 설치 필요 pip install pillowp
+
+---
+
+account 객체와 Profile 객체는 1:1 로 구현 
+
+Profile Image   
+Profile Nickname
+Profile Message   
+
+No Delete View    
+No Detail View
+
+
+프로필 app 생성 python manage.py startapp profileapp
+
+settings 에서 installed 에 추가, url 추가
+
+![image](https://user-images.githubusercontent.com/62640332/152816870-e94db4bc-c0ba-42fd-b1c0-b1e7374eb2f7.png)
+
+AccountAPP 의 usercreationForm 은 장고에서 기본 제공해주는것
+
+ProfileAPP 의 경우에는 기본 제공해주지 않는다. => 새로운 폼을 만들어서 사용해야한다. but 수십 수백개가 되면 일일리 치지 어려움
+
+ => Model Form, 기존의 모델을 폼으로 만들어주는 기능
+
+ ![image](https://user-images.githubusercontent.com/62640332/152817199-7465bf96-2e6f-4fa0-93d9-12788a205c5d.png)
+
+ ![image](https://user-images.githubusercontent.com/62640332/152817265-faebf7eb-e74c-4fa2-802e-46c0f5dfe557.png)
+
+
+ 
+
