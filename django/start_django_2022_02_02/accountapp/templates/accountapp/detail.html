@@ -14,13 +14,18 @@
 
         {% if target_user.profile %}
         <h2>
+            <h4>
             {{ target_user.profile.nickname }}
+            </h4>
                 {% if target_user == user %}
                 <img src="{{ target_user.profile.image.url }}" alt="" style="height: 12rem; width: 8rem; border-radius: 20rem; margin-bottom: 2rem;">
                 
-                <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                    edit
-                </a>
+                <h5 style="margin-bottom: 3rem;">
+                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                        edit
+                    </a>
+                </h5>
+
                 {% endif %}
             {% comment %} {{ target_user.username }} {% endcomment %}
             {% comment %} {{ user.username }} {% endcomment %}
