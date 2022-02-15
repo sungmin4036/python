@@ -216,3 +216,35 @@ CBA 형식으로 하면 굉장히 짧아진다.
 class base로 만들게 된다면, 대부분 좋아지지만 주로 생산성, 복잡도, 사용하는시간도 굉장히 좋아진다.
 
 
+---
+
+detail view 의경우 그 개시물의 정보 여서 지금은 single object 지만, 게시물이기떄문에 multi object 필요 ==> List View 필요 + Pagination
+
+```
+listview 형태
+
+class ArticleListView(ListView):
+   model = Article
+   context_object_name = 'article_list'
+   template_name = 'articleapp/list.html'
+   paginate_by = 25  - 몇개의 객체를 보여줄것인지
+```
+
+- pagination? 
+: generate page of objects로 ex) 구글에서 검색시 아래에 있는 1, 2, 3 페이지 등과같은것
+
+- infinite Scroll
+: ex) Facebook, Instargram, Pinterest...  이것 사용하려면 자바스크립트 필요.
+
+![image](https://user-images.githubusercontent.com/62640332/153892785-c71f58a9-408f-49e1-9e4b-3fccdae2f437.png)
+
+html에서 주로 사용할 객체가 article_list 와 page_obj 사용된다.
+
+  
+![image](https://user-images.githubusercontent.com/62640332/153893096-4466476c-bb25-45ea-ab22-1103e4deb568.png)
+
+article_list는 말그대로 개시물의 리스트 이 안에 각 객체들의 정보가 들어가 있음
+
+![image](https://user-images.githubusercontent.com/62640332/153893148-fa000c89-fd55-4e01-bda6-a4432acf2d5b.png)
+
+page_obj 는 각 페이지의 링크 만들어준다.
