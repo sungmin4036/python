@@ -73,7 +73,7 @@ SECRET_KEY = "2n6gggvhf@=@tj8l60$lzqf*9*^yi4nwbus+uyb-6s5@-w9cty"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 

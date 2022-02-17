@@ -5,11 +5,20 @@
 {% block content %}
 
 <style>
+
+    .container {
+      padding: 0;
+      margin: 0 auto;
+    }
+
+    .container a{
+      width: 45%;
+      max-width: 250px;
+      {% comment %} 모바일에서는 45% , 일반 컴퓨터는 250px 이 된다는 의미  {% endcomment %}
+    }
+
     .container div {
-        width: 250px;
-        height: 500px;
-        background-color: antiquewhite;
-        display: flex;
+         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 8px;

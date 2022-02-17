@@ -264,3 +264,24 @@ detail view 에서는 form을 넣어버리면 안된다 => mixin 사용
 
 ![image](https://user-images.githubusercontent.com/62640332/154092603-d75ac260-dbc4-475d-91de-df378463b6ae.png)
 
+---
+
+- responsive design
+
+-> how to connectect with mobile browser?
+
+python manage.py runserver == python manage.py runserver 127.0.0.1:8000
+
+이것을 수정 하면 모바일에서도 접속 가능하게 함, 로컬 서버에서 변경됨.
+
+python manage.py runserver 0.0.0.0:8000
+
+setting에서 ALLOWED_HOST 설정 필요
+
+Connect to WIFI local network server IP 필요
+
+CMD -> ipconfig 사용하여, wifi router settings page
+
+
+
+
