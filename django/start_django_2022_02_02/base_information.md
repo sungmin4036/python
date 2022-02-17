@@ -248,3 +248,19 @@ article_list는 말그대로 개시물의 리스트 이 안에 각 객체들의 
 ![image](https://user-images.githubusercontent.com/62640332/153893148-fa000c89-fd55-4e01-bda6-a4432acf2d5b.png)
 
 page_obj 는 각 페이지의 링크 만들어준다.
+
+---
+
+![image](https://user-images.githubusercontent.com/62640332/154092202-01db3510-0319-49ab-9351-0b52fbc20224.png)
+
+create view ] no object
+detail view ] no form
+
+detail view 에서는 form을 넣어버리면 안된다 => mixin 사용
+
+![image](https://user-images.githubusercontent.com/62640332/154092543-0d1f778e-368d-485f-bfb7-fef5d9dd74fa.png)
+
+다중 상속을 가능하게 해준다. 이내부에서 form 클래스를 지정해줌으로써, detail 뷰에서도 form 사용 가능하게 해준다.
+
+![image](https://user-images.githubusercontent.com/62640332/154092603-d75ac260-dbc4-475d-91de-df378463b6ae.png)
+

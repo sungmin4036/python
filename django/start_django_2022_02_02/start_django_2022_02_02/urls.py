@@ -26,6 +26,7 @@ urlpatterns = [
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
     path('articles/', include('articleapp.urls')),
+    path('comments/', include('commentapp.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # + 부분이 media 사용할려면 필요함, media_url 과 media_root를 이어줌 => 서버가 정상적으로 이미지 보내줌
