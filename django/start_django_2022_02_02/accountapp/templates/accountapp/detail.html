@@ -18,7 +18,8 @@
             {{ target_user.profile.nickname }}
             </h4>
                 {% if target_user == user %}
-                <img src="{{ target_user.profile.image.url }}" alt="" style="height: 12rem; width: 8rem; border-radius: 20rem; margin-bottom: 2rem;">
+                <img src="{{ target_user.profile.image.url }}" alt="" 
+                style="height: 12rem; width: 8rem; border-radius: 20rem; margin-bottom: 2rem; object-fit: cover;">
                 
                 <h5 style="margin-bottom: 3rem;">
                     <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">

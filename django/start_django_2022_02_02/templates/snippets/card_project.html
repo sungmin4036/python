@@ -1,0 +1,7 @@
+<div style="display: block; text-align: center">
+    <img src="{{ project.image.url }}" alt="">
+    <h5 class=" mt-2" font-family:'MaruBuri-Bold';">
+        {{ project.title | truncatechars:10}}
+        {% comment %}        일정글자수 넘어가면 짤르는것 {% endcomment %}
+    </h5>
+</div>

@@ -1,28 +1,30 @@
 <div class="pragmatic_header">
 
     <div class="pragmatic_logo">
-        <h1>Django_Test</h1>
+        <h1>Django_Finterest</h1>
     </div>
-    <div>
-        <a href= "{% url 'articleapp:list' %}"> 
+    <div class="pragmatic_header_navbar">
+        <a href= "{% url 'articleapp:list' %}" class="pragmatic_header_nav"> 
             <span>Articles</span>  
         </a>
-        <span>name2</span>
-        <span>name3</span>
+        <a href= "{% url 'projectapp:list' %}" class="pragmatic_header_nav"> 
+            <span>Projects</span>  
+        </a>
+     
         
         {% if not user.is_authenticated %}
-        <a href= "{% url 'accountapp:login' %}?next={{ request.path }}"> 
+        <a href= "{% url 'accountapp:login' %}?next={{ request.path }}" class="pragmatic_header_nav"> 
             {% comment %} next 인자가 필요하고, 정보를 받은후, next함수를 이용해서 request.path 라는 인자를 보낸후 원래 있던 자리로 돌아오게. {% endcomment %}
             <span>Login</span>  
         </a>
-        <a href= "{% url 'accountapp:create' %}"> 
+        <a href= "{% url 'accountapp:create' %}" class="pragmatic_header_nav"> 
             <span>SignUp</span>  
         </a>
         {% else %}
-        <a href="{% url 'accountapp:detail' pk=user.pk %}">
+        <a href="{% url 'accountapp:detail' pk=user.pk %}" class="pragmatic_header_nav">
             <span>Mypage</span>
         </a>
-        <a href="{% url 'accountapp:logout' %}?next={{ request.path }}">
+        <a href="{% url 'accountapp:logout' %}?next={{ request.path }}" class="pragmatic_header_nav">
             <span>Logout</span>
         </a>
         {% endif%}
