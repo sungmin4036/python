@@ -333,3 +333,43 @@ Get
 보는대로 글이 써진다.
 
 medium-editor 라는 오픈소스 사용
+
+---
+
+![image](https://user-images.githubusercontent.com/62640332/154850456-f565aebf-916f-4219-8c88-91cd57a7396e.png)
+
+
+
+![image](https://user-images.githubusercontent.com/62640332/154850464-0b8698f8-fa82-45e6-88d1-1156f3acd031.png)
+
+벌쳐 가상서버에 넣어서 도커 이용함
+
+- 기존 서버 설치방법
+
+서버 빌리기 ->  os version mathch -> install required programs
+
+-> install python -> install libray -> ...
+
+- 도커 이용시
+
+처음에만 위의 기존 서버처럼 해놓고, image를 만들어서 contatiner를 이용해 만든다.
+
+![image](https://user-images.githubusercontent.com/62640332/154850793-84bc8885-1e91-46c0-9395-626c8644d0bf.png)
+
+
+![image](https://user-images.githubusercontent.com/62640332/154850822-5cf0b3f2-f3d6-4e28-ba1b-6c495d152a24.png)
+
+하나의 이미지로 여러개의 컨테이너로 만들기 가능해진다.
+
+class 랑 instace 관계와 같이 사용이 가능해진다.
+
+
+---
+virtu
+
+Virtual   
+Private   
+Server   
+
+실제 물리적 서버에서 일정 성능만 빌려서 가상화하여 사용하는것
+
