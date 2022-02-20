@@ -20,8 +20,11 @@ from django.urls import path
 from django.conf.urls import include
 from django.conf.urls.static import static
 
+from articleapp.views import ArticleListView
+
 
 urlpatterns = [
+    path('', ArticleListView.as_view(), name='home'), # ip만 접속해서 쳤을경우 나와지는 곳
     path('admin/', admin.site.urls),
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),

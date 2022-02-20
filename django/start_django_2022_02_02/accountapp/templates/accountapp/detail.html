@@ -3,37 +3,33 @@
 
 {% block content %}
 
-<div style="font-family:'MaruBuri-Bold'">
+<div>
     <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
-        <p>
-            {{ target_user.date_joined }}
+        {% comment %} <p> {% endcomment %}
+            {% comment %} {{ target_user.date_joined }} {% endcomment %}
             {% comment %} {{ user.date_joined }} {% endcomment %}
-        </p>
-
-        
-
+        {% comment %} </p> {% endcomment %}
         {% if target_user.profile %}
-        <h2>
-            <h4>
-            {{ target_user.profile.nickname }}
-            </h4>
-                {% if target_user == user %}
-                <img src="{{ target_user.profile.image.url }}" alt="" 
+        <img src="{{ target_user.profile.image.url }}" alt="" 
                 style="height: 12rem; width: 8rem; border-radius: 20rem; margin-bottom: 2rem; object-fit: cover;">
-                
-                <h5 style="margin-bottom: 3rem;">
-                    <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
-                        edit
+                <h2 style="font-family: 'MaruBuri-Bold'">
+                {{ target_user.profile.nickname }}
+                {% if target_user == user %}
+                    <a class="material-icons"
+                    style="box-shadow: 0 0 4px #ccc; border-radius:10rem; padding: .4rem;"
+                    href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                    edit
                     </a>
+                
+                {% endif %}
+                <h5 style="margin-bottom: 3rem;">
+                    {{ target_user.profile.message}}
                 </h5>
 
-                {% endif %}
+            </h2>
             {% comment %} {{ target_user.username }} {% endcomment %}
             {% comment %} {{ user.username }} {% endcomment %}
-        </h2>
-        <h5 style="margin-bottom: 3rem">
-            {{ target_user.profile.message }}
-        </h5>
+        
 
         {% else %}
             {% if target_user == user %}
@@ -55,17 +51,17 @@
         
 
         {% if target_user == user %}
-        <a href="{% url 'accountapp:update' pk=user.pk %}">
-            <p>
-                Change Info
-            </p>
-        </a>
+            <a class="material-icons"
+                        style="box-shadow: 0 0 4px #ccc; border-radius:10rem; padding: .4rem;"
+                        href="{% url 'accountapp:update' pk=user.pk %}">
+                    settings
+            </a>
 
-        <a href="{% url 'accountapp:delete' pk=user.pk %}">
-            <p>
-                Quit
-            </p>
-        </a>
+            <a class="material-icons"
+                        style="box-shadow: 0 0 4px #fcc; border-radius:10rem; padding: .4rem;"
+                        href="{% url 'accountapp:delete' pk=user.pk %}">
+                        delete
+            </a>
         {% endif%}
     </div>
 
