@@ -12,6 +12,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.views.generic.list import MultipleObjectMixin
+
+from articleapp.models import Article
 
 has_ownership = [account_ownership_required, login_required]
 
@@ -58,10 +61,18 @@ class AccountCreateView(CreateView):
     template_name = 'accountapp/create.html' # 회원가입 할떄, 비주얼 어떤걸 이용할것인지.
     
     
-class AccountDetailView(DetailView):
+class AccountDetailView(DetailView, MultipleObjectMixin):
     model = User
     context_object_name = 'target_user' # 템플렛에서 사용하는 유저 객체를 다르게 설정
     template_name = 'accountapp/detail.html'
+    
+    paginate_by = 25
+    
+    def get_context_data(self, **kwargs):
+        object_list = Article.objects.filter(writer=self.get_object())
+        return super(AccountDetailView, self).get_context_data(object_list=object_list, **kwargs)
+    
+    
     
 # 일반적인 데코레이터는 일반 def(함수형) 에만 적용이 가능하다. 그래서 클래스에서도 사용할수 있게 method_decorator 필요.
 # @method_decorator(login_required, 'get')

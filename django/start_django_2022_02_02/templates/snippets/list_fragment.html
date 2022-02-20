@@ -1,0 +1,82 @@
+{% load static %}
+
+
+
+<style>
+
+    .container {
+      padding: 0;
+      margin: 0 auto;
+    }
+
+    .container a{
+      width: 45%;
+      max-width: 250px;
+      {% comment %} 모바일에서는 45% , 일반 컴퓨터는 250px 이 된다는 의미  {% endcomment %}
+    }
+
+    .container div {
+         display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border-radius: 1rem;
+      }
+      
+      .container img{
+        width: 100%;
+        border-radius: 1rem;
+      }
+      {% comment %} .container .item1 { height: 200px; }
+      .container .item4 { height: 800px; }
+      .container .item6 { height: 600px; }
+      .container .item11 { height: 400px; } {% endcomment %}
+      
+</style>
+
+
+{% if article_list %}
+<div class="container">
+    {% for article in article_list %}
+    <a href="{% url 'articleapp:detail' pk=article.pk %}">
+        {% include 'snippets/card.html' with article=article %} 
+        {% comment %} wieh 구문, article 을 밖에있는 article 과 연결해준다. => for 문의 article이  card.html에 서 쓰일 aricle과 똑같다. {% endcomment %}
+    </a>
+     {% endfor %}
+</div>
+<script src="{% static 'js/magicgrid.js' %}"></script>
+{% else %}
+<div class="text-center">
+  <h1> No Article YET!</h1>
+</div>
+{% endif %}
+
+{% include 'snippets/pagination.html' with page_obj=page_obj %}
+
+
+<div style= "text-align:center">
+  <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill col-3 mt-3 mb-3">
+    Article 생성
+  </a>
+</div>
+
+<script>
+.container div {
+    width: 280px;
+    height: 500px;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    }
+    
+    .container .item1 { height: 200px; }
+    .container .item4 { height: 800px; }
+    .container .item6 { height: 600px; }
+    .container .item11 { height: 400px; }
+    
+</script>
+
+
+

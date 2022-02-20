@@ -4,6 +4,7 @@
 
 <div>
     <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
+
         <img src="{{target_project.image.url}} "alt=""
             style="height: 12rem; width: 12rem; border-radius: 20rem; margin-bottom: 2rem; object-fit: cover;">
 
@@ -16,6 +17,11 @@
         </h5>
 
     </div>
+
+    <div>
+        {% include 'snippets/list_fragment.html' with article_list=object_list %}
+    </div>
+
 
 </div>
 
