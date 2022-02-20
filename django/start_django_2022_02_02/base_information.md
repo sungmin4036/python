@@ -319,4 +319,17 @@ Model_exact
 ```
 
 
+---
+WYSIWYG
 
+What   
+You   
+See   
+Is   
+What   
+You   
+Get   
+
+보는대로 글이 써진다.
+
+medium-editor 라는 오픈소스 사용
