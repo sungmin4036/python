@@ -1,8 +1,10 @@
+from re import template
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.utils.decorators import method_decorator
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, ListView
 from django.contrib.auth.decorators import login_required
+from articleapp.models import Article
 
 from projectapp.models import Project
 from subscribeapp.models import Subscription
@@ -30,3 +32,16 @@ class SubscriptionView(RedirectView):
         
                 
         return super(SubscriptionView, self).get(request, *args, **kwargs)
+    
+    
+@method_decorator(login_required, 'get')
+class SubscriptionListView(ListView):
+    model = Article
+    context_object_name = 'article_list'
+    template_name = 'subscripeapp/list.html'
+    paginate_by = 5
+    
+    def get_queryset(self):
+        projects = Subscription.objects.filter(user=self.request.user).values_list('project') # 프로젝트에 대해서 리스트화 하는것. ==> models.py 에 있는 user, project 를 리스트화 한다
+        article_list = Article.objects.filter(project__in=projects)
+        return article_list

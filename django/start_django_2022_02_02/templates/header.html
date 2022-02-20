@@ -10,6 +10,9 @@
         <a href= "{% url 'projectapp:list' %}" class="pragmatic_header_nav"> 
             <span>Projects</span>  
         </a>
+        <a href= "{% url 'subscribeapp:list' %}" class="pragmatic_header_nav"> 
+            <span>구독</span>  
+        </a>
      
         
         {% if not user.is_authenticated %}

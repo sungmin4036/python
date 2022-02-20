@@ -283,5 +283,40 @@ Connect to WIFI local network server IP 필요
 CMD -> ipconfig 사용하여, wifi router settings page
 
 
+---
+
+Model.objects.filter(pk=xxx, user=xxx)
+
+(pk=xxx, user=xxx) 는 AND function 이다. 둘다 조건이 맞아야 적용되는것
+
+what about OR function, what about WHERE statemet in SQL
+
+==> Articles.objects.filter(project_in=projects) 
+
+이것은 Field lookups라고 한다.
+
+...(project_in=...)
+
+         double underscore
+
+
+In SQL
+
+![image](https://user-images.githubusercontent.com/62640332/154845066-10802909-3b8d-418b-bf22-6ed4061e1393.png)
+
+사용자가 좀더 복잡한 SQL 쿼리를 사용할수 있게 하기 위해서 field lookups 등장
+
+```
+Model_exact
+      iexact
+      contains
+      in
+      gte
+      lte
+      startswith
+      endswith
+      등등 존재
+```
+
 
 
