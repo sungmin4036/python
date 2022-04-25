@@ -1,7 +1,9 @@
 #!/bin/bash
-fab dataa -t 3
+fab dataa 
 sleep 1
-./create_csv.sh
+python create_csv.py
 sleep 1
 ./sendfile.sh
-
+sleep 3
+rm -rf /python_test/full.csv
+rm -rf /python_test/10.*
